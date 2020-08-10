@@ -2,19 +2,75 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-tw">
 <head>
-    <title>Learning JavaScript</title>
+    <title>測試反應</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+
+        :root{
+            
+            --mouse-x:0;
+            --mouse-y:0;
+            --radius: 40px;
+            
+        }
+
+        #ball{
+            width: var(--radius);
+            height: var(--radius);
+            border-radius: 50%;
+            background-color: #FBD771;
+            position: absolute;
+            
+            
+            transform: translate(calc(var(--mouse-x)* 1px - var(--radius)/2), 
+            calc(var(--mouse-y)* 1px - var(--radius)/2));
+        }
+
+        body{
+            background-color: black;
+        }
+
+    </style>
     
       
 </head>
 
 <body>
 
-    <button onclick="alert('您好!')">點按我</button>
+    <div id="ball">
+        <div class="halo"></div>
+        <div class="halo"></div>
+        <div class="halo"></div>
+    </div>
 
     <script type="text/javascript">
+
+        var ball_x = 0;
+        var ball_y = 0;
+
+        var mouse_x = 0;
+        var mouse_y = 0;
+
+        const docStyle = document.documentElement.style;
+
+        document.addEventListener("mousemove", (event) => {
+            mouse_x = event.clientX;
+            mouse_y = event.clientY;
+        });
+
+        function delayMotion(){
+            ball_x = mouse_x;
+            ball_y = mouse_y;
+            docStyle.setProperty("--mouse-x", ball_x);
+            docStyle.setProperty("--mouse-y", ball_y);
+
+            requestAnimationFrame(delayMotion);
+        }
+
+        delayMotion();
 
     </script>
 
