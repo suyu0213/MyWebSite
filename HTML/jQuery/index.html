@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+<head>
+    <title>Learning jQuery</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="jquery.min.js"></script>
+
+    <style>
+
+       #circle{
+           width: 200px;
+           height: 200px;
+           background-color: #A7568B;
+           border-radius: 50%;
+
+       }
+
+       .square{
+           width: 200px;
+           height: 200px;
+           background-color: #E8605E;
+           border-radius: 5px;
+           margin-top: 10px;
+           
+       }
+
+    </style>
+    
+      
+</head>
+
+<body>
+
+    <div id="circle"></div>
+    <button id="b1">淡出</button>
+    <button id="b2">淡入</button>
+
+
+    <script type="text/javascript">
+
+        $("#circle").click(function(){
+            $(this).animate({
+                width: "400px",
+                height: "500px",
+                marginLeft: "100px",
+            }, 1500);
+        });
+
+        $("#b1").click(function(){
+            $("#circle").fadeOut(3000, function(){
+                alert("TimeOut");
+            });
+        });
+
+        $("#b2").click(function(){
+            $("#circle").fadeIn(1000);
+        });
+
+    </script>
+
+</body>
+</html>
