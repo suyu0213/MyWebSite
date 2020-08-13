@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+<head>
+    <title>網頁代碼撥放器</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: darkslategrey;
+        }
+
+        #menu{
+            width: 100%;
+            height: 60px;
+            background-color: black;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+        }
+
+        .menu-container{
+            width: 1200px;
+            margin: auto;
+            padding-top: 15px;
+        }
+
+        #logo{
+            color: wheat;
+            float: left;
+            font-size: 1.5em;
+            margin-left: 500px;
+            padding-left: 15px;
+        }
+
+        .button{
+            float: right;
+            font-size: 18px;
+            width: 120px;
+            background-color: yellow;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .button span{
+            transition: 0.5s;
+            padding-right: 25px;
+        }
+
+        .button span::after{
+            content: "\00bb";
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            transition: 0.5s;
+        }
+
+        .button:hover span::after{
+            opacity: 1;
+            position: relative;
+            right: 0;
+        }
+
+        .clear{
+            clear: both;
+        }
+
+        #accordion{
+            background-color: yellow;
+            width: 100%;
+            height: 400px;
+            margin: auto;
+
+            overflow: hidden;
+        }
+
+        #accordion h3, #accordion div{
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        #accordion h3{
+            background-color: darkslategrey;
+            transform: rotate(270deg);
+            width: 400px;
+            height: 30px;
+            color: white;
+
+            margin: 185px 0 0 -170px;
+        }
+
+        #accordion div{
+            width: 340px;
+            height: 400px;
+
+            margin: 0 5px 0 -170px;
+        }
+
+        textarea{
+            width: 100%;
+            height: inherit;
+            resize: none;
+            
+            background-color: inherit;
+            border: none;
+
+            color: rgb(61, 87, 7);
+            font-size: 20px;
+        }
+
+    </style>
+    
+</head>
+
+<body>
+
+    <div id="menu">
+        <div class="menu-container">
+            <div id="logo">
+                網頁代碼撥放器
+            </div>
+
+            <button id="runCode" class="button" type="button" name="button"><span>運行代碼 </span></button>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <ul id="accordion">
+
+        <h3 id="html-code" class="tab">HTML</h3>
+        <div class="code-container">
+            <textarea id="html-code">
+
+                
+            </textarea>
+        </div>
+
+        <h3 id="css-code" class="tab">CSS</h3>
+        <div class="code-container">
+            <textarea id="css-code">
+
+                
+            </textarea>
+        </div>
+
+        <h3 id="js-code" class="tab">JavaScript</h3>
+        <div class="code-container">
+            <textarea id="js-code">
+
+                
+            </textarea>
+        </div>
+
+    </ul>
+    
+    <script type="text/javascript">
+
+        
+    </script>
+
+</body>
+</html>
