@@ -12,12 +12,18 @@
     // $query = "update users set email='tomWang@gmail.com' where name='tom'";
 
     //SQL查詢
-    $query = "select * from users where name like '%o%'";
+    // $query = "select * from users where name like '%o%' and password != ''";
+    
+
+    $name = "tony'";
+
+    $query = "select * from users where name = '".mysqli_real_escape_string($connection, $name)."'";
 
     $result = mysqli_query($connection, $query);
 
     if($result){
-        echo "作業完成"."<br/>";
+        // echo "作業完成"."<br/>";
+        echo mysqli_num_rows($result)."<br/>";
         while($row = mysqli_fetch_array($result)){
             print_r($row);
         }
